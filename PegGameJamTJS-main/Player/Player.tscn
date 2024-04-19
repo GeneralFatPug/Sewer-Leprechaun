@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bldl2v6odnmeo"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_x7l5n"]
+[ext_resource type="Texture2D" uid="uid://bkjdeeg2glof" path="res://The Irishman/Player Character_00.png" id="2_mfkmc"]
+[ext_resource type="Texture2D" uid="uid://cfh12ejvmbxil" path="res://The Irishman/Player Character_01.png" id="3_pkr68"]
+[ext_resource type="Texture2D" uid="uid://l37dfqbo0hs6" path="res://The Irishman/Player Character_02.png" id="4_68o0c"]
+[ext_resource type="Texture2D" uid="uid://d3tyobojhh2rt" path="res://The Irishman/Player Character_03.png" id="5_i61w6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sxgds"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1lw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mfkmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pkr68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_68o0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i61w6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_x7l5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_sxgds")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p1lw8")
+animation = &"Idle"
+frame_progress = 0.165283
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

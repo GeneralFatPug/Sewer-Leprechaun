@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqssnluqda1qj"]
+
+[ext_resource type="Texture2D" uid="uid://dknr7eq2sgfeh" path="res://Bombs/BombSplit_00.png" id="1_gvj0u"]
+[ext_resource type="Script" path="res://scripts/bomb.gd" id="1_mfviq"]
+[ext_resource type="Texture2D" uid="uid://b6mr0l7pj2q2v" path="res://Bombs/BombSplit_01.png" id="2_usanc"]
+[ext_resource type="Texture2D" uid="uid://bbqo4mtt1e8fq" path="res://Bombs/BombSplit_02.png" id="3_y1m4t"]
+[ext_resource type="Texture2D" uid="uid://5i2rb3om0qtx" path="res://Bombs/BombSplit_03.png" id="4_w80so"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xf2vo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gvj0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_usanc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y1m4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w80so")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uenag"]
+radius = 16.0
+
+[node name="bomb" type="Area2D" groups=["Bomb"]]
+script = ExtResource("1_mfviq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xf2vo")
+frame = 2
+frame_progress = 0.267639
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Bomb"]]
+shape = SubResource("CircleShape2D_uenag")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -24)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

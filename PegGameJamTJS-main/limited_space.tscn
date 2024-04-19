@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://7sxipqaukekx"]
+
+[node name="LimitedSpace" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 325.0
+offset_top = 117.0
+offset_right = 741.0
+offset_bottom = 201.0
+text = "PLAY "
+
+[node name="Button" type="Button" parent="Button"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 270.0
+offset_right = 425.0
+offset_bottom = 359.0
+text = "QUIT"
