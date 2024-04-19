@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmgnxj0bg52g2"]
+
+[ext_resource type="Script" path="res://Water_Body.gd" id="1_33pkg"]
+
+[node name="Water_Body" type="Node2D"]
+script = ExtResource("1_33pkg")
+spring_number = 40
+
+[node name="Water_Polygon" type="Polygon2D" parent="."]
+color = Color(0.203922, 0.517647, 0.670588, 0.741176)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.05
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
